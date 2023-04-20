@@ -105,5 +105,13 @@ namespace SqlKata.Tests.Infrastructure
                 .ToDictionary(k => k.Key, v => v.Value.Compile(query.Clone()));
             return new TestSqlResultContainer(resultKeyValues);
         }
+
+        public TestSqlResultContainer Compile(string sql, params object[] args)
+        {
+            var results = Compilers
+                .ToDictionary(k => k.Key, v => v.Value.Compile(sql, args));
+
+            return new TestSqlResultContainer(results);
+        }
     }
 }

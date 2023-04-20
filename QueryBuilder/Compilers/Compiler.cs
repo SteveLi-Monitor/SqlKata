@@ -198,6 +198,19 @@ namespace SqlKata.Compilers
             return ctx;
         }
 
+        public virtual SqlResult Compile(string sql, params object[] args)
+        {
+            var ctx = new SqlResult
+            {
+                RawSql = sql,
+                Bindings = args.ToList(),
+            };
+
+            ctx = PrepareResult(ctx);
+
+            return ctx;
+        }
+
         protected virtual SqlResult CompileSelectQuery(Query query)
         {
             var ctx = new SqlResult
