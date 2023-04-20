@@ -23,7 +23,8 @@ namespace SqlKata.Tests.Infrastructure
             [EngineCodes.SqlServer] = new SqlServerCompiler()
             {
                 UseLegacyPagination = true
-            }
+            },
+            [EngineCodes.SqlAnywhere] = new SqlAnywhereCompiler(),
         };
 
         public IEnumerable<string> KnownEngineCodes
