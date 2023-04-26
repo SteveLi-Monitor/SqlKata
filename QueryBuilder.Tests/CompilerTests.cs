@@ -18,10 +18,10 @@ namespace SqlKata.Tests
             Assert.Equal(10, sqlServer.NamedBindings["@p0"]);
             Assert.Equal(20, sqlServer.NamedBindings["@p1"]);
 
-            var oracle = c[EngineCodes.Oracle];
-            Assert.Equal("SELECT * FROM Table1 WHERE Column1 = :p0 AND Column2 = :p1", oracle.Sql);
-            Assert.Equal(10, oracle.NamedBindings[":p0"]);
-            Assert.Equal(20, oracle.NamedBindings[":p1"]);
+            var sqlAnywhere = c[EngineCodes.SqlAnywhere];
+            Assert.Equal("SELECT * FROM Table1 WHERE Column1 = :p0 AND Column2 = :p1", sqlAnywhere.Sql);
+            Assert.Equal(10, sqlAnywhere.NamedBindings[":p0"]);
+            Assert.Equal(20, sqlAnywhere.NamedBindings[":p1"]);
         }
     }
 }
